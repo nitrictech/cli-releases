@@ -37,7 +37,7 @@ jobs:
         with:
           tag_name: ${{ github.event.client_payload.tag }}
           release_name: ${{ github.event.client_payload.tag }}
-          body: See CHANGELOG.md in nitric-tech/cli for changes
+          body: See CHANGELOG.md in nitrictech/cli for changes
           draft: true
           prerelease: false
 
@@ -46,7 +46,7 @@ jobs:
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.RELEASE_TOKEN }}
-          repository: nitric-tech/cli
+          repository: nitrictech/cli
           event-type: release-ready
           client-payload: '{"url": "${{ steps.create_release.outputs.upload_url }}", "tag": "${{ github.event.client_payload.tag }}"}'
 
